@@ -1,0 +1,42 @@
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.back-to-home {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-to-home-link {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #000000;
+  }
+}
+
+h1, h2 {
+  color: #333;
+}
+
+p, ul, li {
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}

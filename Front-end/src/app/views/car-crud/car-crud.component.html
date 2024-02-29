@@ -1,0 +1,399 @@
+<div class="body">
+
+  <header>
+    <div class="logosec">
+      <div class="logo">Eletrip</div>
+    </div>
+    <div class="message">
+      <a class="custom-button" href="/car-stock">Estoque</a>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="option2 nav-option" routerLink="/dashboard">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M554 128h342v256h-342v-256zM554 896v-426h342v426h-342zM128 896v-256h342v256h-342zM128 554v-426h342v426h-342z">
+              </path>
+            </svg>
+            <h3> Dashboard</h3>
+          </div>
+
+          <div class="option2 nav-option" routerLink="/car-body">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M214 554h596l-64-192h-468zM746 768q26 0 45-18t19-46-19-46-45-18-45 18-19 46 19 46 45 18zM278 768q26 0 45-18t19-46-19-46-45-18-45 18-19 46 19 46 45 18zM808 342l88 256v340q0 18-12 31t-30 13h-44q-18 0-30-13t-12-31v-42h-512v42q0 18-12 31t-30 13h-44q-18 0-30-13t-12-31v-340l88-256q14-44 62-44h468q48 0 62 44zM298 214q-26 0-45-19t-19-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-19 45t-45 19zM512 214q-28 0-46-19t-18-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-18 45t-46 19zM726 214q-26 0-45-19t-19-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-19 45t-45 19z">
+              </path>
+            </svg>
+            <h3> Carrocerias</h3>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="table-responsive">
+        <div class="report-header">
+          <h1 class="recent-Articles">Veículos</h1>
+          <button class="view" (click)="showModal = true">Adicionar</button>
+        </div>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Ano</th>
+              <th>Autonomia</th>
+              <th>Marca</th>
+              <th>Passageiros</th>
+              <th>Placa</th>
+              <th>Cor</th>
+              <th>Motor</th>
+              <th>Valor</th>
+              <th>Carroceria</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let carCrud of carCruds">
+              <tr>
+                <td data-label="ID">{{ carCrud.idVeiculo }}</td>
+                <td data-label="Nome">{{ carCrud.nomeVeiculo }}</td>
+                <td data-label="Ano">{{ carCrud.anoVeiculo }}</td>
+                <td data-label="Autonomia">{{ carCrud.autonomiaVeiculo }}</td>
+                <td data-label="Marca">{{ carCrud.marcaVeiculo }}</td>
+                <td data-label="Passageiros">{{ carCrud.passageirosVeiculo }}</td>
+                <td data-label="Placa">{{ carCrud.placaVeiculo }}</td>
+                <td data-label="Cor">{{ carCrud.corVeiculo }}</td>
+                <td data-label="Motor">{{ carCrud.motorVeiculo }}</td>
+                <td data-label="Valor">{{ carCrud.valorLocacao }}</td>
+                <td data-label="Carroceria">{{ carCrud.nomeCarroceria }}</td>
+                <td data-label="Status">{{ carCrud.statusVeiculo }}</td>
+                <td data-label="Ação">
+                  <div class="icon-container">
+                    <svg viewBox="0 0 1024 1024" style="width: 24px; height: 24px; cursor: pointer;"
+                      (click)="showModal2 = true; onEdit(carCrud)">
+                      <path
+                        d="M884 300l-78 78-160-160 78-78q12-12 30-12t30 12l100 100q12 12 12 30t-12 30zM128 736l472-472 160 160-472 472h-160v-160z">
+                      </path>
+                    </svg>
+                    <svg viewBox="0 0 1024 1024" style="width: 24px; height: 24px; cursor: pointer;"
+                      (click)="showModal3 = true; carCrudToDelete = carCrud">
+                      <path
+                        d="M662 170h148v86h-596v-86h148l44-42h212zM360 506l92 92-90 90 60 60 90-90 90 90 60-60-90-90 90-92-60-60-90 92-90-92zM256 810v-512h512v512q0 34-26 60t-60 26h-340q-34 0-60-26t-26-60z">
+                      </path>
+                    </svg>
+                    <svg viewBox="0 0 1024 1024" style="width: 24px; height: 24px; cursor: pointer;"
+                      (click)="showModal4 = true; carCrudToDisable = carCrud">
+                      <path
+                        d="M534 342v180l148 90-30 52-182-110v-212h64zM896 432h-290l118-120q-88-88-211-89t-211 85q-36 36-62 97t-26 111 26 111 62 97 98 62 112 26 113-26 99-62q86-86 86-208h86q0 158-112 268-112 112-272 112t-272-112q-112-110-112-267t112-269q46-46 125-79t145-33 145 33 125 79l116-120v304z">
+                      </path>
+                    </svg>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Cadastro-->
+<div class="modal" [class.show-modal]="showModal">
+  <div class="modal-content">
+    <h1>Formulário de Cadastro</h1>
+    <form [formGroup]="carCrudForm" (ngSubmit)="onSubmit()">
+
+      <div class="user-input-box">
+        <label>Nome do Veículo</label>
+        <input type="text" required id="nomeVeiculo" name="nomeVeiculo" formControlName="nomeVeiculo"
+          placeholder="Ex: Model S" />
+        <div
+          *ngIf="carCrudForm.get('nomeVeiculo')?.invalid && (carCrudForm.get('nomeVeiculo')?.dirty || carCrudForm.get('nomeVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('nomeVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Ano do Veículo</label>
+        <input type="number" required id="anoVeiculo" name="anoVeiculo" formControlName="anoVeiculo"
+          placeholder="Ex: 2022" />
+        <div
+          *ngIf="carCrudForm.get('anoVeiculo')?.invalid && (carCrudForm.get('anoVeiculo')?.dirty || carCrudForm.get('anoVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['minlength']">Mínimo de 4 número.</div>
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['maxlength']">Máximo de 4 número.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Autonomia do Veículo</label>
+        <input type="number" required id="autonomiaVeiculo" name="autonomiaVeiculo" formControlName="autonomiaVeiculo"
+          placeholder="Ex: 200 KM" />
+        <div
+          *ngIf="carCrudForm.get('autonomiaVeiculo')?.invalid && (carCrudForm.get('autonomiaVeiculo')?.dirty || carCrudForm.get('autonomiaVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('autonomiaVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Marca do Veículo</label>
+        <input type="text" required id="marcaVeiculo" name="marcaVeiculo" formControlName="marcaVeiculo"
+          placeholder="Ex: Tesla" />
+        <div
+          *ngIf="carCrudForm.get('marcaVeiculo')?.invalid && (carCrudForm.get('marcaVeiculo')?.dirty || carCrudForm.get('marcaVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('marcaVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Passageiros do Veículo</label>
+        <input type="number" required id="passageirosVeiculo" name="passageirosVeiculo"
+          formControlName="passageirosVeiculo" placeholder="Ex: 5" />
+        <div
+          *ngIf="carCrudForm.get('passageirosVeiculo')?.invalid && (carCrudForm.get('passageirosVeiculo')?.dirty || carCrudForm.get('passageirosVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('passageirosVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Placa do Veículo</label>
+        <input type="text" required id="placaVeiculo" name="placaVeiculo" formControlName="placaVeiculo"
+          placeholder="Ex: XXXXXXX" />
+        <div
+          *ngIf="carCrudForm.get('passageirosVeiculo')?.invalid && (carCrudForm.get('passageirosVeiculo')?.dirty || carCrudForm.get('passageirosVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('passageirosVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+          <div *ngIf="carCrudForm.get('placaVeiculo')?.errors?.['minlength']">Mínimo de 7 número.</div>
+          <div *ngIf="carCrudForm.get('placaVeiculo')?.errors?.['maxlength']">Máximo de 7 número.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Cor do Veículo</label>
+        <input type="text" required id="corVeiculo" name="corVeiculo" formControlName="corVeiculo"
+          placeholder="Ex: Preto" />
+        <div
+          *ngIf="carCrudForm.get('corVeiculo')?.invalid && (carCrudForm.get('corVeiculo')?.dirty || carCrudForm.get('corVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('corVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Potência do Motor</label>
+        <input type="number" required id="motorVeiculo" name="motorVeiculo" formControlName="motorVeiculo"
+          placeholder="Ex: 400 CV" />
+        <div
+          *ngIf="carCrudForm.get('motorVeiculo')?.invalid && (carCrudForm.get('motorVeiculo')?.dirty || carCrudForm.get('motorVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('motorVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Valor Diário</label>
+        <input type="number" required id="valorLocacao" name="valorLocacao" formControlName="valorLocacao"
+          placeholder="Ex: 400" />
+        <div
+          *ngIf="carCrudForm.get('valorLocacao')?.invalid && (carCrudForm.get('valorLocacao')?.dirty || carCrudForm.get('valorLocacao')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('valorLocacao')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Carroceria</label>
+        <select required id="carroceriaId" name="carroceriaId" formControlName="carroceriaId">
+          <option *ngFor="let carBody of carBodies" [value]="carBody.idCarroceria">
+            {{ carBody.nomeCarroceria }}
+          </option>
+          <div
+            *ngIf="carCrudForm.get('carroceriaId')?.invalid && (carCrudForm.get('carroceriaId')?.dirty || carCrudForm.get('carroceriaId')?.touched)"
+            class="text-danger">
+            <div *ngIf="carCrudForm.get('carroceriaId')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </select>
+      </div>
+
+      <div class="user-input-box-image">
+        <label>Imagem do Veículo</label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+      </div>
+
+    </form>
+    <div class="modal-buttons">
+      <button class="submit-button" (click)="onSubmit()">Cadastrar</button>
+      <button class="close-button" (click)="showModal = false">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edição-->
+<div class="modalEdicao" [class.show-modal]="showModal2">
+  <div class="modal-content-edicao">
+    <h1>Formulário de Edição</h1>
+    <form [formGroup]="carCrudForm">
+
+      <div class="user-input-box">
+        <label>Nome do Veículo</label>
+        <input type="text" required id="nomeVeiculo" name="nomeVeiculo" formControlName="nomeVeiculo"
+          placeholder="Ex: Model S" />
+        <div
+          *ngIf="carCrudForm.get('nomeVeiculo')?.invalid && (carCrudForm.get('nomeVeiculo')?.dirty || carCrudForm.get('nomeVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('nomeVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Ano do Veículo</label>
+        <input type="number" required id="anoVeiculo" name="anoVeiculo" formControlName="anoVeiculo"
+          placeholder="Ex: 2022" />
+        <div
+          *ngIf="carCrudForm.get('anoVeiculo')?.invalid && (carCrudForm.get('anoVeiculo')?.dirty || carCrudForm.get('anoVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['minlength']">Mínimo de 4 número.</div>
+          <div *ngIf="carCrudForm.get('anoVeiculo')?.errors?.['maxlength']">Máximo de 4 número.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Autonomia do Veículo</label>
+        <input type="number" required id="autonomiaVeiculo" name="autonomiaVeiculo" formControlName="autonomiaVeiculo"
+          placeholder="Ex: 200 KM" />
+        <div
+          *ngIf="carCrudForm.get('autonomiaVeiculo')?.invalid && (carCrudForm.get('autonomiaVeiculo')?.dirty || carCrudForm.get('autonomiaVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('autonomiaVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Marca do Veículo</label>
+        <input type="text" required id="marcaVeiculo" name="marcaVeiculo" formControlName="marcaVeiculo"
+          placeholder="Ex: Tesla" />
+        <div
+          *ngIf="carCrudForm.get('marcaVeiculo')?.invalid && (carCrudForm.get('marcaVeiculo')?.dirty || carCrudForm.get('marcaVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('marcaVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Passageiros do Veículo</label>
+        <input type="number" required id="passageirosVeiculo" name="passageirosVeiculo"
+          formControlName="passageirosVeiculo" placeholder="Ex: 5" />
+        <div
+          *ngIf="carCrudForm.get('passageirosVeiculo')?.invalid && (carCrudForm.get('passageirosVeiculo')?.dirty || carCrudForm.get('passageirosVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('passageirosVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Placa do Veículo</label>
+        <input type="text" required id="placaVeiculo" name="placaVeiculo" formControlName="placaVeiculo"
+          placeholder="Ex: XXXXXXX" />
+        <div
+          *ngIf="carCrudForm.get('passageirosVeiculo')?.invalid && (carCrudForm.get('passageirosVeiculo')?.dirty || carCrudForm.get('passageirosVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('passageirosVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+          <div *ngIf="carCrudForm.get('placaVeiculo')?.errors?.['minlength']">Mínimo de 7 número.</div>
+          <div *ngIf="carCrudForm.get('placaVeiculo')?.errors?.['maxlength']">Máximo de 7 número.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Cor do Veículo</label>
+        <input type="text" required id="corVeiculo" name="corVeiculo" formControlName="corVeiculo"
+          placeholder="Ex: Preto" />
+        <div
+          *ngIf="carCrudForm.get('corVeiculo')?.invalid && (carCrudForm.get('corVeiculo')?.dirty || carCrudForm.get('corVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('corVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Potência do Motor</label>
+        <input type="number" required id="motorVeiculo" name="motorVeiculo" formControlName="motorVeiculo"
+          placeholder="Ex: 400 CV" />
+        <div
+          *ngIf="carCrudForm.get('motorVeiculo')?.invalid && (carCrudForm.get('motorVeiculo')?.dirty || carCrudForm.get('motorVeiculo')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('motorVeiculo')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Valor Diário</label>
+        <input type="number" required id="valorLocacao" name="valorLocacao" formControlName="valorLocacao"
+          placeholder="Ex: 400" />
+        <div
+          *ngIf="carCrudForm.get('valorLocacao')?.invalid && (carCrudForm.get('valorLocacao')?.dirty || carCrudForm.get('valorLocacao')?.touched)"
+          class="text-danger">
+          <div *ngIf="carCrudForm.get('valorLocacao')?.errors?.['required']">Campo obrigatório.</div>
+        </div>
+      </div>
+
+      <div class="user-input-box">
+        <label>Carroceria</label>
+        <select required id="carroceriaId" name="carroceriaId" formControlName="carroceriaId">
+          <option *ngFor="let carBody of carBodies" [value]="carBody.idCarroceria">
+            {{ carBody.nomeCarroceria }}
+          </option>
+          <div
+            *ngIf="carCrudForm.get('carroceriaId')?.invalid && (carCrudForm.get('carroceriaId')?.dirty || carCrudForm.get('carroceriaId')?.touched)"
+            class="text-danger">
+            <div *ngIf="carCrudForm.get('carroceriaId')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </select>
+      </div>
+
+      <div class="user-input-box-image">
+        <label>Imagem do Veículo</label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+      </div>
+    </form>
+    <div class="modal-buttons-edicao">
+      <button class="submit-button-edicao" (click)="submitEdit()">Editar</button>
+      <button class="close-button-edicao" (click)="showModal2 = false">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Exclusão -->
+<div class="modalExclusao" [class.show-modal]="showModal3">
+  <div class="modal-content-exclusao">
+    <p>Você tem certeza de que deseja deletar?</p>
+    <div class="modal-buttons-exclusao">
+      <button class="confirm-button" (click)="onDelete()">Sim</button>
+      <button class="cancel-button" (click)="showModal3 = false">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Desativação -->
+<div class="modalDesativacao" [class.show-modal]="showModal4">
+  <div class="modal-content-desativacao">
+    <p>Você tem certeza de que deseja mudar o status do carro?</p>
+    <div class="modal-buttons-exclusao">
+      <button class="confirm-button" (click)="onChange()">Sim</button>
+      <button class="cancel-button" (click)="showModal4 = false">Cancelar</button>
+    </div>
+  </div>
+</div>

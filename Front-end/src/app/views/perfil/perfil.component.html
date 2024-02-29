@@ -1,0 +1,138 @@
+<div class="perfil-container">
+  <header data-role="Header" class="perfil-header">
+    <h1 class="perfil-logo">ElecTrip</h1>
+    <div class="perfil-nav">
+      <div class="perfil-links-container">
+        <a routerLink="/car-stock" class="perfil-navlink1">Estoque</a>
+        <app-dropdown></app-dropdown>
+      </div>
+    </div>
+    <div data-role="BurgerMenu" class="perfil-burger-menu">
+      <svg viewBox="0 0 1024 1024" class="perfil-icon">
+        <path
+          d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z">
+        </path>
+      </svg>
+    </div>
+    <div data-role="MobileMenu" class="perfil-mobile-menu">
+      <div class="perfil-nav1">
+        <div class="perfil-container1">
+          <div data-role="CloseMobileMenu" class="perfil-close-mobile-menu">
+            <svg viewBox="0 0 1024 1024" class="perfil-icon02">
+              <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z">
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="perfil-features">
+    <h1 class="perfil-text2">Seus dados</h1>
+    <div class="perfil-separator"></div>
+    <div class="perfil-container2">
+      <div class="perfil-container3">
+        <feature-card41 title="Nome Completo" rootClassName="rootClassName1"
+          [description]="userData.nomeUsuario"></feature-card41>
+        <feature-card41 title="E-mail" rootClassName="rootClassName4"
+          [description]="userData.emailUsuario"></feature-card41>
+        <feature-card41 title="Data de Nascimento" rootClassName="rootClassName8"
+          [description]="formattedDate"></feature-card41>
+        <feature-card41 title="CPF" rootClassName="rootClassName7"
+        [description]="userData.cpfUsuario"></feature-card41>
+        <feature-card41 title="RG" rootClassName="rootClassName2"
+        [description]="userData.rgUsuario"></feature-card41>
+        <feature-card41 title="Gênero" rootClassName="rootClassName5"
+          [description]="getGenderDescription(userData.generoUsuario)">
+        </feature-card41>
+        <feature-card41 title="Telefone" rootClassName="rootClassName6"
+          [description]="userData.telefoneUsuario"></feature-card41>
+        <feature-card41 title="Rua" rootClassName="rootClassName9"
+        [description]="userData.ruaUsuario"></feature-card41>
+        <feature-card41 title="Número da Residência" rootClassName="rootClassName10"
+          [description]="userData.numeroUsuario"></feature-card41>
+        <feature-card41 title="Bairro" rootClassName="rootClassName11"
+          [description]="userData.bairroUsuario"></feature-card41>
+        <feature-card41 title="Estado" rootClassName="rootClassName12"
+          [description]="userData.estadoUsuario"></feature-card41>
+        <feature-card41 title="Número da CNH" rootClassName="rootClassName14"
+          [description]="userData.cnhHabilitacao"></feature-card41>
+        <feature-card41 title="Validade da CNH" rootClassName="rootClassName15"
+          [description]="formattedValidityDate"></feature-card41>
+        <feature-card41 title="Registro da Habilitação" rootClassName="rootClassName16"
+          [description]="userData.numeroRegistroHabilitacao"></feature-card41>
+      </div>
+    </div>
+    <button type="button" (click)="showModal = true" class="perfil-button button">Editar Dados</button>
+  </div>
+  <footer class="perfil-footer">
+    <h1 class="perfil-logo1">ElecTrip</h1>
+    <span class="perfil-text3">© 2023 Eletrip, All Rights Reserved.</span>
+    <div class="perfil-icon-group1">
+      <svg viewBox="0 0 877.7142857142857 1024" class="perfil-icon10">
+        <path
+          d="M438.857 73.143c242.286 0 438.857 196.571 438.857 438.857 0 193.714-125.714 358.286-300 416.571-22.286 4-30.286-9.714-30.286-21.143 0-14.286 0.571-61.714 0.571-120.571 0-41.143-13.714-67.429-29.714-81.143 97.714-10.857 200.571-48 200.571-216.571 0-48-17.143-86.857-45.143-117.714 4.571-11.429 19.429-56-4.571-116.571-36.571-11.429-120.571 45.143-120.571 45.143-34.857-9.714-72.571-14.857-109.714-14.857s-74.857 5.143-109.714 14.857c0 0-84-56.571-120.571-45.143-24 60.571-9.143 105.143-4.571 116.571-28 30.857-45.143 69.714-45.143 117.714 0 168 102.286 205.714 200 216.571-12.571 11.429-24 30.857-28 58.857-25.143 11.429-89.143 30.857-127.429-36.571-24-41.714-67.429-45.143-67.429-45.143-42.857-0.571-2.857 26.857-2.857 26.857 28.571 13.143 48.571 64 48.571 64 25.714 78.286 148 52 148 52 0 36.571 0.571 70.857 0.571 81.714 0 11.429-8 25.143-30.286 21.143-174.286-58.286-300-222.857-300-416.571 0-242.286 196.571-438.857 438.857-438.857zM166.286 703.429c1.143-2.286-0.571-5.143-4-6.857-3.429-1.143-6.286-0.571-7.429 1.143-1.143 2.286 0.571 5.143 4 6.857 2.857 1.714 6.286 1.143 7.429-1.143zM184 722.857c2.286-1.714 1.714-5.714-1.143-9.143-2.857-2.857-6.857-4-9.143-1.714-2.286 1.714-1.714 5.714 1.143 9.143 2.857 2.857 6.857 4 9.143 1.714zM201.143 748.571c2.857-2.286 2.857-6.857 0-10.857-2.286-4-6.857-5.714-9.714-3.429-2.857 1.714-2.857 6.286 0 10.286s7.429 5.714 9.714 4zM225.143 772.571c2.286-2.286 1.143-7.429-2.286-10.857-4-4-9.143-4.571-11.429-1.714-2.857 2.286-1.714 7.429 2.286 10.857 4 4 9.143 4.571 11.429 1.714zM257.714 786.857c1.143-3.429-2.286-7.429-7.429-9.143-4.571-1.143-9.714 0.571-10.857 4s2.286 7.429 7.429 8.571c4.571 1.714 9.714 0 10.857-3.429zM293.714 789.714c0-4-4.571-6.857-9.714-6.286-5.143 0-9.143 2.857-9.143 6.286 0 4 4 6.857 9.714 6.286 5.143 0 9.143-2.857 9.143-6.286zM326.857 784c-0.571-3.429-5.143-5.714-10.286-5.143-5.143 1.143-8.571 4.571-8 8.571 0.571 3.429 5.143 5.714 10.286 4.571s8.571-4.571 8-8z">
+        </path>
+      </svg>
+    </div>
+  </footer>
+</div>
+
+
+<!-- Modal -->
+<div *ngIf="showModal" class="modal-background">
+  <div class="modal">
+    <form (ngSubmit)="updateUserData()" [formGroup]="editForm">
+
+      <label for="nomeUsuario">Nome Completo:</label>
+      <input type="text" id="nomeUsuario" formControlName="nomeUsuario" />
+
+      <label for="telefoneUsuario">Telefone:</label>
+      <input type="tel" id="telefoneUsuario" formControlName="telefoneUsuario" />
+
+      <label for="dataNascimentoUsuario">Data de Nascimento:</label>
+      <input type="date" id="dataNascimentoUsuario" formControlName="dataNascimentoUsuario" />
+
+      <label for="cpfUsuario">CPF:</label>
+      <input type="text" id="cpfUsuario" formControlName="cpfUsuario" />
+
+      <label for="rgUsuario">RG:</label>
+      <input type="text" id="rgUsuario" formControlName="rgUsuario" />
+
+      <label for="generoUsuario">Gênero:</label>
+      <select id="generoUsuario" name="generoUsuario" formControlName="generoUsuario" required>
+        <option value="1">Masculino</option>
+        <option value="2">Feminino</option>
+        <option value="3">Outros</option>
+      </select>
+
+      <label for="cidadeUsuario">Cidade:</label>
+      <input type="text" id="cidadeUsuario" formControlName="cidadeUsuario" />
+
+      <label for="estadoUsuario">Estado:</label>
+      <input type="text" id="estadoUsuario" formControlName="estadoUsuario" />
+
+      <label for="ruaUsuario">Rua:</label>
+      <input type="text" id="ruaUsuario" formControlName="ruaUsuario" />
+
+      <label for="numeroUsuario">Número da Residência:</label>
+      <input type="text" id="numeroUsuario" formControlName="numeroUsuario" />
+
+      <label for="bairroUsuario">Bairro:</label>
+      <input type="text" id="bairroUsuario" formControlName="bairroUsuario" />
+
+      <label for="numeroRegistroHabilitacao">Número da CNH:</label>
+      <input type="text" id="numeroRegistroHabilitacao" formControlName="numeroRegistroHabilitacao" />
+
+      <label for="validadeHabilitacao">Validade da CNH:</label>
+      <input type="date" id="validadeHabilitacao" formControlName="validadeHabilitacao" />
+
+      <label for="cnhHabilitacao">Registro da Habilitação:</label>
+      <input type="text" id="cnhHabilitacao" formControlName="cnhHabilitacao" />
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+    <button (click)="onCloseModal()">Fechar</button>
+  </div>
+</div>
+

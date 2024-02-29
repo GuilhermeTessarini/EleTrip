@@ -1,0 +1,64 @@
+<div class="body">
+
+  <header>
+    <div class="logosec">
+      <div class="logo">Eletrip</div>
+    </div>
+    <div class="message">
+      <a class="custom-button" href="/car-stock">Estoque</a>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="option2 nav-option" routerLink="/car-body">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M214 554h596l-64-192h-468zM746 768q26 0 45-18t19-46-19-46-45-18-45 18-19 46 19 46 45 18zM278 768q26 0 45-18t19-46-19-46-45-18-45 18-19 46 19 46 45 18zM808 342l88 256v340q0 18-12 31t-30 13h-44q-18 0-30-13t-12-31v-42h-512v42q0 18-12 31t-30 13h-44q-18 0-30-13t-12-31v-340l88-256q14-44 62-44h468q48 0 62 44zM298 214q-26 0-45-19t-19-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-19 45t-45 19zM512 214q-28 0-46-19t-18-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-18 45t-46 19zM726 214q-26 0-45-19t-19-45q0-18 16-47t32-49l16-20q64 74 64 116 0 26-19 45t-45 19z">
+              </path>
+            </svg>
+            <h3> Carrocerias</h3>
+          </div>
+
+          <div class="nav-option option2" routerLink="/car-crud">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M214 470h596l-64-192h-468zM746 682q26 0 45-19t19-45-19-45-45-19-45 19-19 45 19 45 45 19zM278 682q26 0 45-19t19-45-19-45-45-19-45 19-19 45 19 45 45 19zM808 256l88 256v342q0 18-12 30t-30 12h-44q-18 0-30-12t-12-30v-44h-512v44q0 18-12 30t-30 12h-44q-18 0-30-12t-12-30v-342l88-256q12-42 62-42h468q50 0 62 42z">
+              </path>
+            </svg>
+            <h3> Carros</h3>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="box-container">
+
+        <div class="box box1" routerLink="/car-body">
+          <div class="text">
+            <h5 class="topic-heading">Carrocerias</h5>
+            <h2 class="topic">{{data?.carroceria}}</h2>
+          </div>
+        </div>
+
+        <div class="box box2" routerLink="/car-crud">
+          <div class="text">
+            <h2 class="topic-heading">Veículos</h2>
+            <h2 class="topic">{{data?.veiculo}}</h2>
+          </div>
+        </div>
+
+        <div class="box box3">
+          <div class="text">
+            <h2 class="topic-heading">Faturas</h2>
+            <h2 class="topic">{{data?.fatura}}</h2>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

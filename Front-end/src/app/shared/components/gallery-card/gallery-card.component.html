@@ -1,0 +1,15 @@
+<div class="gallery-card-gallery-card" [ngClass]="rootClassName">
+
+  <img
+    [attr.alt]="image_alt"
+    [attr.src]="getFormattedImagePath()"
+    class="gallery-card-image"
+  />
+  <h1 class="gallery-card-text">{{ nomeVeiculo }}</h1>
+  <h3 class="gallery-card-text1">{{ marcaVeiculo }}</h3>
+  <h4 class="gallery-card-text2">{{ anoVeiculo }}</h4>
+  <h4 class="gallery-card-text3">{{ autonomiaVeiculo }}</h4>
+  <h4 class="gallery-card-text4">{{ motorVeiculo }}</h4>
+  <h3 class="gallery-card-text5">{{ valorLocacao }}</h3>
+
+</div>

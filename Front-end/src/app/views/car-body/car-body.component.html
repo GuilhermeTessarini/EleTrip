@@ -1,0 +1,137 @@
+<div class="body">
+  <header>
+    <div class="logosec">
+      <div class="logo">Eletrip</div>
+    </div>
+    <div class="message">
+      <a class="custom-button" href="/car-stock">Estoque</a>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="option2 nav-option" routerLink="/dashboard">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M554 128h342v256h-342v-256zM554 896v-426h342v426h-342zM128 896v-256h342v256h-342zM128 554v-426h342v426h-342z">
+              </path>
+            </svg>
+            <h3> Dashboard</h3>
+          </div>
+
+          <div class="nav-option option2" routerLink="/car-crud">
+            <svg viewBox="0 0 1024 1024" class="page-icon2">
+              <path
+                d="M214 470h596l-64-192h-468zM746 682q26 0 45-19t19-45-19-45-45-19-45 19-19 45 19 45 45 19zM278 682q26 0 45-19t19-45-19-45-45-19-45 19-19 45 19 45 45 19zM808 256l88 256v342q0 18-12 30t-30 12h-44q-18 0-30-12t-12-30v-44h-512v44q0 18-12 30t-30 12h-44q-18 0-30-12t-12-30v-342l88-256q12-42 62-42h468q50 0 62 42z">
+              </path>
+            </svg>
+            <h3> Carros</h3>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+
+    <div class="main">
+      <div class="table-responsive">
+        <div class="report-header">
+          <h1 class="recent-Articles">Carrocerias</h1>
+          <button class="view" (click)="showModal = true">Adicionar</button>
+        </div>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let carBody of carBodies">
+              <tr>
+                <td data-label="ID">{{ carBody.idCarroceria }}</td>
+                <td data-label="Nome">{{ carBody.nomeCarroceria }}</td>
+                <td data-label="Ação">
+                  <div class="icon-container">
+                    <svg viewBox="0 0 1024 1024" style="width: 24px; height: 24px; cursor: pointer;"
+                      (click)="showModal2 = true; onEdit(carBody)">
+                      <path
+                        d="M884 300l-78 78-160-160 78-78q12-12 30-12t30 12l100 100q12 12 12 30t-12 30zM128 736l472-472 160 160-472 472h-160v-160z">
+                      </path>
+                    </svg>
+                    <svg viewBox="0 0 1024 1024" style="width: 24px; height: 24px; cursor: pointer;"
+                      (click)="showModal3 = true; carBodyToDelete = carBody">
+                      <path
+                        d="M662 170h148v86h-596v-86h148l44-42h212zM360 506l92 92-90 90 60 60 90-90 90 90 60-60-90-90 90-92-60-60-90 92-90-92zM256 810v-512h512v512q0 34-26 60t-60 26h-340q-34 0-60-26t-26-60z">
+                      </path>
+                    </svg>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Cadastro-->
+  <div class="modal" [class.show-modal]="showModal">
+    <div class="modal-content">
+      <h1>Formulário de Cadastro</h1>
+      <form [formGroup]="carBodyForm" (ngSubmit)="onSubmit()">
+        <div class="user-input-box">
+          <label>Nome da Carroceria</label>
+          <input type="text" required id="nomeCarroceria" name="nomeCarroceria" formControlName="nomeCarroceria"
+            placeholder="Ex: SUV" />
+          <div
+            *ngIf="carBodyForm.get('nomeCarroceria')?.invalid && (carBodyForm.get('nomeCarroceria')?.dirty || carBodyForm.get('nomeCarroceria')?.touched)"
+            class="text-danger">
+            <div *ngIf="carBodyForm.get('nomeCarroceria')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+      </form>
+      <div class="modal-buttons">
+        <button class="submit-button" (click)="onSubmit()">Cadastrar</button>
+        <button class="close-button" (click)="showModal = false">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edição-->
+  <div class="modalEdicao" [class.show-modal]="showModal2">
+    <div class="modal-content-edicao">
+      <h1>Formulário de Edição</h1>
+      <form [formGroup]="carBodyForm">
+        <div class="user-input-box-edicao">
+          <label>Nome da Carroceria</label>
+          <input type="text" required id="nomeCarroceria" name="nomeCarroceria" formControlName="nomeCarroceria"
+            placeholder="Ex: SUV" />
+          <div
+            *ngIf="carBodyForm.get('nomeCarroceria')?.invalid && (carBodyForm.get('nomeCarroceria')?.dirty || carBodyForm.get('nomeCarroceria')?.touched)"
+            class="text-danger">
+            <div *ngIf="carBodyForm.get('nomeCarroceria')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+
+        </div>
+      </form>
+      <div class="modal-buttons-edicao">
+        <button class="submit-button-edicao" (click)="submitEdit()">Editar</button>
+        <button class="close-button-edicao" (click)="showModal2 = false">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de exclusão -->
+  <div class="modalExclusao" [class.show-modal]="showModal3">
+    <div class="modal-content-exclusao">
+      <p>Você tem certeza de que deseja deletar?</p>
+      <div class="modal-buttons-exclusao">
+        <button class="confirm-button" (click)="onDelete()">Sim</button>
+        <button class="cancel-button" (click)="showModal3 = false">Cancelar</button>
+      </div>
+    </div>
+  </div>

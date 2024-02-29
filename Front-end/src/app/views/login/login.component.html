@@ -1,0 +1,46 @@
+<div class="body">
+  <div class="container">
+    <h1 class="form-title">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="main-user-info">
+        <div class="user-input-box">
+          <label>Email</label>
+          <input type="text" id="emailUsuario" name="emailUsuario" formControlName="emailUsuario"
+            placeholder="email@exemplo.com" />
+          <div
+            *ngIf="loginForm.get('emailUsuario')?.invalid && (loginForm.get('emailUsuario')?.dirty || loginForm.get('emailUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="loginForm.get('emailUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Senha</label>
+          <input type="password" id="senhaUsuario" name="senhaUsuario" formControlName="senhaUsuario"
+            placeholder="Senha" />
+          <div
+            *ngIf="loginForm.get('senhaUsuario')?.invalid && (loginForm.get('senhaUsuario')?.dirty || loginForm.get('senhaUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="loginForm.get('senhaUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/password-recovery" class="login-navlink2">
+        Esqueceu sua senha?
+      </a>
+      <div class="form-submit-btn">
+        <input type="submit" value="Entrar" class="btn-entrar" />
+      </div>
+    </form>
+    <div class="login-link-container">
+      <span class="login-text">Não possui uma conta?</span>
+      <a routerLink="/registration" class="login-navlink">Crie uma!</a>
+    </div>
+    <a routerLink="/">
+      <svg viewBox="0 0 1024 1024" class="login-icon" width="24" height="24">
+        <path
+          d="M512 386.517v-109.184c0-10.923-4.181-21.845-12.501-30.208-8.32-8.32-19.243-12.459-30.165-12.459s-21.845 4.139-30.165 12.459l-268.501 264.875 268.501 264.832c8.32 8.32 19.243 12.501 30.165 12.501s21.845-4.181 30.165-12.501 12.501-19.285 12.501-30.165v-106.197c117.333 2.901 245.547 24.149 341.333 170.197v-42.667c0-197.675-149.333-360.235-341.333-381.483z">
+        </path>
+      </svg>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,187 @@
+<div class="body">
+  <div class="container">
+    <h1 class="form-title">Cadastro</h1>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="main-user-info">
+        <div class="user-input-box">
+          <label>Nome Completo</label>
+          <input type="text" required id="nomeUsuario" name="nomeUsuario" formControlName="nomeUsuario"
+            placeholder="Seu nome completo" />
+          <div
+            *ngIf="registrationForm.get('nomeUsuario')?.invalid && (registrationForm.get('nomeUsuario')?.dirty || registrationForm.get('nomeUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('nomeUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Email</label>
+          <input type="text" required id="emailUsuario" name="emailUsuario" formControlName="emailUsuario"
+            placeholder="email@exemplo.com" />
+          <div
+            *ngIf="registrationForm.get('emailUsuario')?.invalid && (registrationForm.get('emailUsuario')?.dirty || registrationForm.get('emailUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('emailUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Senha</label>
+          <input type="password" required id="senhaUsuario" name="senhaUsuario" formControlName="senhaUsuario"
+            placeholder="Senha" />
+          <div
+            *ngIf="registrationForm.get('senhaUsuario')?.invalid && (registrationForm.get('senhaUsuario')?.dirty || registrationForm.get('senhaUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('senhaUsuario')?.errors?.['required']">Campo obrigatório.</div>
+            <div *ngIf="registrationForm.get('senhaUsuario')?.errors?.['minlength']">Mínimo de 8 caracteres.</div>
+            <div *ngIf="registrationForm.get('senhaUsuario')?.errors?.['maxlength']">Máximo de 18 caracteres.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Telefone</label>
+          <input type="tel" required id="telefoneUsuario" name="telefoneUsuario" formControlName="telefoneUsuario"
+            placeholder="(XX) XXXXX-XXXX" />
+          <div
+            *ngIf="registrationForm.get('telefoneUsuario')?.invalid && (registrationForm.get('telefoneUsuario')?.dirty || registrationForm.get('telefoneUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('telefoneUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Data de Nascimento</label>
+          <input type="date" required id="dataNascimentoUsuario" name="dataNascimentoUsuario"
+            formControlName="dataNascimentoUsuario" placeholder="Sua data de nascimento" />
+          <div
+            *ngIf="registrationForm.get('dataNascimentoUsuario')?.invalid && (registrationForm.get('dataNascimentoUsuario')?.dirty || registrationForm.get('dataNascimentoUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('dataNascimentoUsuario')?.errors?.['required']">Campo obrigatório.</div>
+            <div *ngIf="registrationForm.get('dataNascimentoUsuario')?.hasError('minimumAge')" class="text-danger">Deve ter no mínimo 18 anos.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>CPF</label>
+          <input type="text" required id="cpfUsuario" name="cpfUsuario" formControlName="cpfUsuario"
+            placeholder="XXXXXXXXX/XX" pattern="[0-9]{11}" />
+          <div
+            *ngIf="registrationForm.get('cpfUsuario')?.invalid && (registrationForm.get('cpfUsuario')?.dirty || registrationForm.get('cpfUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('cpfUsuario')?.errors?.['required']">Campo obrigatório.</div>
+            <div *ngIf="registrationForm.get('cpfUsuario')?.hasError('pattern')">CPF inválido.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>RG</label>
+          <input type="text" required id="rgUsuario" name="rgUsuario" formControlName="rgUsuario"
+            placeholder="XX.XXX.XXX-X" pattern="[0-9A-Za-z.]{7,15}" />
+          <div
+            *ngIf="registrationForm.get('rgUsuario')?.invalid && (registrationForm.get('rgUsuario')?.dirty || registrationForm.get('rgUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('rgUsuario')?.errors?.['required']">Campo obrigatório.</div>
+            <div *ngIf="registrationForm.get('rgUsuario')?.hasError('pattern')">RG inválido.</div>
+          </div>
+        </div>
+
+        <div class="gender-details-box">
+          <label class="gender-title">Gênero</label>
+          <select id="generoUsuario" name="generoUsuario" formControlName="generoUsuario" required>
+            <option value="1">Masculino</option>
+            <option value="2">Feminino</option>
+            <option value="3">Outros</option>
+          </select>
+          <div
+            *ngIf="registrationForm.get('generoUsuario')?.invalid && (registrationForm.get('generoUsuario')?.dirty || registrationForm.get('generoUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('generoUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Estado</label>
+          <input type="text" required id="estadoUsuario" name="estadoUsuario" formControlName="estadoUsuario"
+            placeholder="Nome do seu Estado" />
+          <div
+            *ngIf="registrationForm.get('estadoUsuario')?.invalid && (registrationForm.get('estadoUsuario')?.dirty || registrationForm.get('estadoUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('estadoUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Cidade</label>
+          <input type="text" required id="cidadeUsuario" name="cidadeUsuario" formControlName="cidadeUsuario"
+            placeholder="Nome da sua cidade" />
+          <div
+            *ngIf="registrationForm.get('cidadeUsuario')?.invalid && (registrationForm.get('cidadeUsuario')?.dirty || registrationForm.get('cidadeUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('cidadeUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Rua</label>
+          <input type="text" required id="ruaUsuario" name="ruaUsuario" formControlName="ruaUsuario"
+            placeholder="Rua da sua residência" />
+          <div
+            *ngIf="registrationForm.get('ruaUsuario')?.invalid && (registrationForm.get('ruaUsuario')?.dirty || registrationForm.get('ruaUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('ruaUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Número</label>
+          <input type="text" required id="numeroUsuario" name="numeroUsuario" formControlName="numeroUsuario"
+            placeholder="Número da sua residência" />
+          <div
+            *ngIf="registrationForm.get('numeroUsuario')?.invalid && (registrationForm.get('numeroUsuario')?.dirty || registrationForm.get('numeroUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('numeroUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>Bairro</label>
+          <input type="text" required id="bairroUsuario" name="bairroUsuario" formControlName="bairroUsuario"
+            placeholder="Bairro da sua residência" />
+          <div
+            *ngIf="registrationForm.get('bairroUsuario')?.invalid && (registrationForm.get('bairroUsuario')?.dirty || registrationForm.get('bairroUsuario')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('bairroUsuario')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>N.º de registro da habilitação</label>
+          <input type="text" required id="numeroRegistroHabilitacao" name="numeroRegistroHabilitacao"
+            formControlName="numeroRegistroHabilitacao" placeholder="XXXXXXXXXXX" />
+          <div
+            *ngIf="registrationForm.get('numeroRegistroHabilitacao')?.invalid && (registrationForm.get('numeroRegistroHabilitacao')?.dirty || registrationForm.get('numeroRegistroHabilitacao')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('numeroRegistroHabilitacao')?.errors?.['required']">Campo obrigatório.
+            </div>
+            <div *ngIf="registrationForm.get('numeroRegistroHabilitacao')?.hasError('pattern')">N.º de registro da
+              habilitação inválido.</div>
+          </div>
+        </div>
+
+        <div class="user-input-box">
+          <label>Validade da habilitação</label>
+          <input type="date" required id="validadeHabilitacao" name="validadeHabilitacao"
+            formControlName="validadeHabilitacao" placeholder="Validade da habilitação" />
+          <div
+            *ngIf="registrationForm.get('validadeHabilitacao')?.invalid && (registrationForm.get('validadeHabilitacao')?.dirty || registrationForm.get('validadeHabilitacao')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('validadeHabilitacao')?.errors?.['required']">Campo obrigatório.</div>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label>N.º da CNH</label>
+          <input type="text" required id="cnhHabilitacao" name="cnhHabilitacao" formControlName="cnhHabilitacao"
+            placeholder="XXXXXXXXXX" />
+          <div
+            *ngIf="registrationForm.get('cnhHabilitacao')?.invalid && (registrationForm.get('cnhHabilitacao')?.dirty || registrationForm.get('cnhHabilitacao')?.touched)"
+            class="text-danger">
+            <div *ngIf="registrationForm.get('cnhHabilitacao')?.errors?.['required']">Campo obrigatório.</div>
+            <div *ngIf="registrationForm.get('cnhHabilitacao')?.hasError('pattern')">N.º da CNH inválido.</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-submit-btn">
+        <input type="submit" value="Cadastrar" class="btn-cadastrar">
+        <button class="btn-voltar" (click)="onVoltarClick()">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>

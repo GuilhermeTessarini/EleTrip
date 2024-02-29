@@ -1,0 +1,20 @@
+<div class="dropdown">
+  <button class="dropbtn">Conta</button>
+  <div class="dropdown-content">
+    <a href="/perfil">Perfil</a>
+    <a href="billing-management">Faturas</a>
+    <a href="/changePassword">Trocar Senha</a>
+    <a (click)="showModal = true">Desconectar</a>
+  </div>
+</div>
+
+
+<div class="modal" [class.show-modal]="showModal">
+  <div class="modal-content">
+    <p>Você tem certeza de que deseja desconectar?</p>
+    <div class="modal-buttons">
+      <button class="confirm-button" (click)="logout()">Sim</button>
+      <button class="cancel-button" (click)="showModal = false">Cancelar</button>
+    </div>
+  </div>
+</div>

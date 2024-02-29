@@ -1,0 +1,181 @@
+<div class="pgina-inicial-container">
+  <div class="pgina-inicial-top-container">
+    <nav data-role="Header" class="pgina-inicial-navbar">
+      <h1 class="pgina-inicial-logo">EleTrip</h1>
+      <div class="pgina-inicial-right-side">
+        <div class="pgina-inicial-links-container">
+          <a class="pgina-inicial-text01" href="/overview">Sobre</a>
+        </div>
+        <a routerLink="/login" class="pgina-inicial-navlink1">
+          <solid-button
+            button="Login"
+            class="pgina-inicial-component"
+          ></solid-button>
+        </a>
+      </div>
+      <div data-role="BurgerMenu" class="pgina-inicial-burger-menu" (click)="onBurgerMenuClick()">
+        <svg viewBox="0 0 1024 1024" class="pgina-inicial-burger-menu">
+          <path
+            d="M810.667 725.333h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+          ></path>
+          <path
+            d="M810.667 426.667h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+          ></path>
+          <path
+            d="M810.667 128h-597.333c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333h597.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
+          ></path>
+        </svg>
+      </div>
+      <div data-role="MobileMenu" class="pgina-inicial-mobile-menu">
+        <div class="pgina-inicial-nav">
+          <div class="pgina-inicial-top">
+            <h1>EleTrip</h1>
+            <div data-role="CloseMobileMenu" class="pgina-inicial-close-menu" (click)="onCloseMobileMenuClick()">
+              <svg viewBox="0 0 1024 1024" class="pgina-inicial-icon03">
+                <path
+                  d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="pgina-inicial-links-container1">
+            <a href="/login" class="pgina-inicial-link">Login</a>
+            <a href="/overview" class="pgina-inicial-link">Sobre</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="pgina-inicial-hero">
+      <div class="pgina-inicial-content-container">
+        <h1 class="pgina-inicial-heading Heading">Reserve seu carro</h1>
+        <h2 class="pgina-inicial-subheading">
+          2022 Audi RS e-tron GT
+        </h2>
+        <span class="pgina-inicial-text08">
+          <span>Potência de 646 HP, Autonomia de 313 km,</span>
+          <br />
+          <span>Tempo de carregamento: 8,3 horas.</span>
+        </span>
+        <a routerLink="/login" class="pgina-inicial-navlink1">
+          <solid-button button="Reserve agora"></solid-button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="main-section" class="pgina-inicial-main">
+    <h1>Carros mais populares</h1>
+    <span class="pgina-inicial-text13">Recomendados</span>
+    <div class="pgina-inicial-cards-container">
+      <place-card
+        city="Jaguar I-Pace"
+        image="/assets/img/Jaguar-i-pace-2021_1.jpg"
+        description="O Jaguar I-PACE 2021 é um SUV elétrico de luxo que une desempenho excepcional a um design elegante. "
+        rootClassName="place-card-root-class-name"
+      ></place-card>
+      <place-card
+        city="Mini Cooper SE"
+        image="/assets/img/Mini Cooper SE-2021.jpg"
+        description="O Mini Cooper SE 2021 une estilo icônico e condução elétrica, oferecendo um charme eletrizante."
+      ></place-card>
+      <place-card
+        city="Peugeot e-208 GT"
+        image="/assets/img/PEUGEOTe208GT_388-scaled.jpeg"
+        description="Peugeot e-208 GT 2022 elegância elétrica em um compacto, proporcionando estilo e eficiência na condução urbana."
+      ></place-card>
+      <place-card
+        city="Hyundai Kona EV"
+        image="/assets/img/hyundai-kona-electric.jpg"
+        description="Hyundai Kona EV 2022 um SUV eletrizante de alta performance, oferecendo versatilidade, eficiência e estilo inovador."
+      ></place-card>
+      <place-card
+        city="Renault Kwid e-Tech"
+        image="/assets/img/Renault-Kwid-E-Tech-3_edited.jpg"
+        description="Renault Kwid E-Tech 2023 um estilo compacto e eficiência elétrica combinados para uma condução urbana inteligente e moderna."
+      ></place-card>
+      <place-card
+        city="Tesla Model S"
+        image="/assets/img/tesla-models-2021.jpeg"
+        description="Tesla Model S 2021 é a perfeita fusão entre luxo e desempenho, elevando a experiência de condução elétrica."
+      ></place-card>
+    </div>
+  </div>
+  <div class="pgina-inicial-footer">
+    <div class="pgina-inicial-menu">
+      <h1>
+        <span>ElecTrip</span>
+        <br />
+      </h1>
+      <div class="pgina-inicial-links-container2">
+        <div class="pgina-inicial-container1">
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link04"
+          >
+            Trabalhe Conosco
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link05"
+          >
+            Seguradoras
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link06"
+          >
+            Para empresas
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link07"
+          >
+            Seja um franqueado
+          </a>
+        </div>
+        <div class="pgina-inicial-container2">
+          <a
+            href="https://example.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link08"
+          >
+            Sobre Nós
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link09"
+          >
+            FAQ
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link10"
+          >
+            Roteiro de Viajem
+          </a>
+          <a
+            href="/login"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="pgina-inicial-link11"
+          >
+            Cadastre-se
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

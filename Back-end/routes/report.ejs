@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        h3 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #3498db;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .total-section {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Eletrip</h1>
+    <table>
+        <tr>
+            <th>Nome do Cliente</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td><%= nomeFatura %></td>
+            <td><%= emailFatura %></td>
+        </tr>
+        <tr>
+            <th>Contato</th>
+            <th>Método de Pagamento</th>
+        </tr>
+        <tr>
+            <td><%= telefoneFatura %></td>
+            <td><%= metodoPagamentoFatura %></td>
+        </tr>
+        <tr>
+            <th>Data de Retirada</th>
+            <th>Data de Retorno</th>
+        </tr>
+        <tr>
+            <td><%= dataRetirada %></td>
+            <td><%= dataRetorno %></td>
+        </tr>
+    </table>
+
+    <h3>Detalhes do Veículo</h3>
+    <table>
+        <tr>
+            <th>Nome do Veículo</th>
+            <th>Carroceria</th>
+            <th>Preço Diário</th>
+        </tr>
+        <% if(veiculoDetalhe.length > 0) { %>
+            <% veiculoDetalhe.forEach(veiculo => { %>
+                <tr>
+                    <td><%= veiculo.nomeVeiculo %></td>
+                    <td><%= veiculo.carroceria %></td>
+                    <td>R$ <%= veiculo.valorLocacao %>,00</td>
+                </tr>
+            <% }); %>
+        <% } %>
+    </table>
+
+    <div class="total-section">
+        <h3>Total da Fatura: R$ <%= totalFatura %>,00</h3>
+    </div>
+</body>
+
+</html>

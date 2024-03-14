@@ -11,7 +11,7 @@ EleTrip is my graduation project. It is a web application developed to facilitat
 - **Vehicle Details:** Get detailed information about each car, including range, features, and price.
 - **Vehicle Management:** View, modify, or delete existing vehicles.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - **Angular:** Front end of the application.
 - **Node.js:** Back end for business logic.
